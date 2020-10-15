@@ -5,10 +5,26 @@ import java.time.DayOfWeek;
 public class Hotel {
 	private String hotelName;
 	private int regularWD;
-
+	private int regularWE;
+	
 	public Hotel(String hotelName, int regularWD) {
 		this.hotelName = hotelName;
 		this.regularWD = regularWD;
+	}
+
+	public Hotel(String hotelName, int regularWD, int regularWE) {
+		this.hotelName = hotelName;
+		this.regularWD = regularWD;
+		this.regularWE = regularWE;
+
+	}
+
+	public int getRegularWE() {
+		return regularWE;
+	}
+
+	public void setRegularWE(int regularWE) {
+		this.regularWE = regularWE;
 	}
 
 	public String getHotelName() {
