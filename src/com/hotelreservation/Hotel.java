@@ -1,5 +1,7 @@
 package com.hotelreservation;
 
+import java.time.DayOfWeek;
+
 public class Hotel {
 	private String hotelName;
 	private int regularWD;
@@ -25,4 +27,14 @@ public class Hotel {
 		this.regularWD = regularWD;
 	}
 
+	public int findDay(String day) {
+		return DayOfWeek.valueOf(day.toUpperCase()).getValue();
+	}
+
+	public int calculateRent(String type, String finalDay) {
+		if (type.equals("Regular") && (1 <= findDay(finalDay) && findDay(finalDay) <= 5)) {
+			return regularWD;
+		}
+		return 0;
+	}
 }
