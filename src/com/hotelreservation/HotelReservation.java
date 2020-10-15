@@ -33,6 +33,11 @@ public class HotelReservation {
 		Hotel hotel = new Hotel(name, regularWD, regularWE, rating);
 		hotelMap.put(name, hotel);
 	}
+	
+	public void add(String name, int regularWD, int regularWE, int ratings, int rewardsWD, int rewardsWE) {
+		Hotel hotel = new Hotel(name, regularWD, regularWE, ratings, rewardsWD, rewardsWE);
+		hotelMap.put(name, hotel);
+	}
 
 	public static String dayOfWeek(String args) throws ParseException {
 		String input_date = args;
@@ -59,7 +64,7 @@ public class HotelReservation {
 
 	public String cheapestBestRated(String fromDate, String toDate) throws ParseException {
 		List<String> cheapHotels = cheapestHotel(fromDate, toDate);
-		String[] arguments = {fromDate, toDate};
+		String[] arguments = { fromDate, toDate };
 		int rating = 0;
 		int count = 0;
 		String hotelName = "";
@@ -74,7 +79,8 @@ public class HotelReservation {
 				}
 			}
 		}
-		System.out.println(hotelName+","+"Rating: "+rating+" Total rate is "+createRentMap(arguments).get(hotelName));
+		System.out.println(
+				hotelName + "," + "Rating: " + rating + " Total rate is " + createRentMap(arguments).get(hotelName));
 		return hotelName;
 	}
 
@@ -107,9 +113,10 @@ public class HotelReservation {
 		System.out.println(" with The Total Rates $" + hotelRates.get(0));
 		return cheapestHotels;
 	}
-	public String bestRatedHotel(String fromDate, String toDate ) throws ParseException {
+
+	public String bestRatedHotel(String fromDate, String toDate) throws ParseException {
 		int rating = 0;
-		String[] arguments = {fromDate, toDate};
+		String[] arguments = { fromDate, toDate };
 		String hotelName = "";
 		for (Map.Entry<String, Hotel> entry : hotelMap.entrySet()) {
 			if (entry.getValue().getRatings() > rating) {
@@ -117,9 +124,10 @@ public class HotelReservation {
 				hotelName = entry.getKey();
 			}
 		}
-		System.out.println(hotelName+","+" Total rate is "+createRentMap(arguments).get(hotelName));
+		System.out.println(hotelName + "," + " Total rate is " + createRentMap(arguments).get(hotelName));
 		return hotelName;
 	}
+
 	/**
 	 * Printing the hotel data
 	 */

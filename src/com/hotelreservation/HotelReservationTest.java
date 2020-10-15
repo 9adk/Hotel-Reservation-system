@@ -140,6 +140,10 @@ class HotelReservationTest {
 		}
 		assertEquals("Bridgewood", result);
 	}
+
+	/**
+	 * Usecase7 for finding best rated hotel 
+	 */
 	@Test
 	public void givenNewDatawithRatings_WhenAddedToMap_ShouldReturnBestRated() {
 		HotelReservation hotel = new HotelReservation();
@@ -154,5 +158,16 @@ class HotelReservationTest {
 		}
 		assertEquals("Ridgewood", result);
 	}
-
+	/**
+	 * Usecase8 for assigning rates for reward customer
+	 */
+	@Test
+	public void givenHotelDataForRewardCustomer_WhenAddedToMap_ShouldPassResult() {
+		HotelReservation hotel = new HotelReservation();
+		hotel.add("Lakewood", 110, 90, 3, 80, 80);
+		hotel.add("Bridgewood", 150, 50, 4, 110, 50);
+		hotel.add("Ridgewood", 220, 150, 5, 100, 40);
+		int result = hotel.size();
+		assertEquals(3, result);
+	}
 }

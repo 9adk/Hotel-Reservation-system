@@ -7,6 +7,24 @@ public class Hotel {
 	private int regularWD;
 	private int regularWE;
 	private int ratings;
+	private int rewardsWD;
+	private int rewardsWE;
+
+	public int getRewardsWD() {
+		return rewardsWD;
+	}
+
+	public void setRewardsWD(int rewardsWD) {
+		this.rewardsWD = rewardsWD;
+	}
+
+	public int getRewardsWE() {
+		return rewardsWE;
+	}
+
+	public void setRewardsWE(int rewardsWE) {
+		this.rewardsWE = rewardsWE;
+	}
 
 	public Hotel(String hotelName, int regularWD) {
 		this.hotelName = hotelName;
@@ -25,6 +43,15 @@ public class Hotel {
 		this.regularWD = regularWD;
 		this.regularWE = regularWE;
 		this.ratings = ratings;
+
+	}
+	public Hotel(String hotelName, int regularWD, int regularWE, int ratings, int rewardsWD, int rewardsWE) {
+		this.hotelName = hotelName;
+		this.regularWD = regularWD;
+		this.regularWE = regularWE;
+		this.ratings = ratings;
+		this.rewardsWD = rewardsWD;
+		this.rewardsWE = rewardsWE;
 
 	}
 
