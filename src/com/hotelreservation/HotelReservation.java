@@ -12,6 +12,7 @@ public class HotelReservation {
 	public HotelReservation() {
 		hotelMap = new HashMap<>();
 	}
+
 	/**
 	 * Adding the hotel to map
 	 * 
@@ -23,7 +24,6 @@ public class HotelReservation {
 		hotelMap.put(name, hotel);
 	}
 
-	
 	/**
 	 * Adding the hotel to map
 	 * 
@@ -66,20 +66,26 @@ public class HotelReservation {
 	 * @return
 	 * @throws ParseException
 	 */
-	public String cheapestHotel(String fromDate, String toDate) throws ParseException {
+	public List<String> cheapestHotel(String fromDate, String toDate) throws ParseException {
 		String[] arguments = { fromDate, toDate };
-		String hotelName = "";
+		int count = 0;
 		Map<String, Integer> rentMap = createRentMap(arguments); // Creating a rent map for hotels for the dates
 		List<Integer> hotelRates = new ArrayList<>();
 		hotelRates = rentMap.values().stream().collect(Collectors.toList()); // list of hotel rates
 		Collections.sort(hotelRates);
+		List<String> cheapestHotels = new ArrayList<>();
 		for (Map.Entry<String, Integer> entry : rentMap.entrySet()) {
 			if (entry.getValue() == (int) hotelRates.get(0)) { // Comparing the hotel rate with cheapest rate for hotel
-																// name
-				hotelName = entry.getKey();
+																// // name
+				cheapestHotels.add(entry.getKey());
+				count++;
 			}
 		}
-		return hotelName;
+		for (int i = 0; i < count; i++) {
+			System.out.print(cheapestHotels.get(i) + " - ");
+		}
+		System.out.println(" with The Total Rates $" + hotelRates.get(0));
+		return cheapestHotels;
 	}
 
 	/**

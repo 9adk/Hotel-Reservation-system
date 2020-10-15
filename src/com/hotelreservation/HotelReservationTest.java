@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.text.ParseException;
 
 import org.junit.jupiter.api.Test;
+import java.util.*;
 
 class HotelReservationTest {
 
@@ -38,6 +39,7 @@ class HotelReservationTest {
 
 	/**
 	 * Usecase2 for finding cheapest hotel, Modified for weekend rates
+	 * 
 	 */
 	@Test
 	public void givenHotelData_WhenAddedToMap_ShouldReturnCheapestHotel() {
@@ -46,13 +48,13 @@ class HotelReservationTest {
 		hotel.add("Bridgewood", 150, 50);
 		hotel.add("Ridgewood", 220, 150);
 		hotel.printHotels();
-		String result = "";
+		List<String> result = new ArrayList<>();
 		try {
-			result = hotel.cheapestHotel("10Sep2020", "11Sep2020");
+			result = hotel.cheapestHotel("12Sep2020", "13Sep2020");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		assertEquals("Lakewood", result);
+		assertEquals("Bridgewood", result.get(0));
 	}
 
 	/**
@@ -65,13 +67,32 @@ class HotelReservationTest {
 		hotel.add("Bridgewood", 160, 60);
 		hotel.add("Ridgewood", 440, 180);
 		hotel.printHotels();
-		String result = "";
+		List<String> result = new ArrayList<>();
 		try {
 			result = hotel.cheapestHotel("08Sep2020", "11Sep2020");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		assertEquals("Bridgewood", result);
+		assertEquals("Bridgewood", result.get(0));
 	}
 
+	/**
+	 * Usecase4 for finding the two cheapest hotels
+	 */
+	@Test
+	public void givenHotelData_WhenAddedToMap_ShouldReturnListOfCheapestHotel() {
+		HotelReservation hotel = new HotelReservation();
+		hotel.add("Lakewood", 110, 90);
+		hotel.add("Bridgewood", 150, 50);
+		hotel.add("Ridgewood", 220, 150);
+		hotel.printHotels();
+		List<String> result = new ArrayList<>();
+		try {
+			result = hotel.cheapestHotel("11Sep2020", "12Sep2020");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		assertEquals("Bridgewood", result.get(0));
+		assertEquals("Lakewood", result.get(1));
+	}
 }

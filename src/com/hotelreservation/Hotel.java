@@ -6,7 +6,7 @@ public class Hotel {
 	private String hotelName;
 	private int regularWD;
 	private int regularWE;
-	
+
 	public Hotel(String hotelName, int regularWD) {
 		this.hotelName = hotelName;
 		this.regularWD = regularWD;
@@ -50,6 +50,8 @@ public class Hotel {
 	public int calculateRent(String type, String finalDay) {
 		if (type.equals("Regular") && (1 <= findDay(finalDay) && findDay(finalDay) <= 5)) {
 			return regularWD;
+		} else if (type.equals("Regular") && (6 <= findDay(finalDay) && findDay(finalDay) <= 7)) {
+			return regularWE;
 		}
 		return 0;
 	}
