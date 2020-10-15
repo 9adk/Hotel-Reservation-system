@@ -37,7 +37,7 @@ public class HotelReservation {
 
 	public static String dayOfWeek(String args) throws ParseException {
 		String input_date = args;
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMMyyyy");
 		Date date = dateFormat.parse(input_date);
 		DateFormat date_Format = new SimpleDateFormat("EEEE");
 		String dayOfWeek = date_Format.format(date);

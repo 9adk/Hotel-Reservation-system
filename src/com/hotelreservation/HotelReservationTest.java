@@ -48,7 +48,7 @@ class HotelReservationTest {
 		hotel.printHotels();
 		String result = "";
 		try {
-			result = hotel.cheapestHotel("10/09/2020", "11/09/2020");
+			result = hotel.cheapestHotel("10Sep2020", "11Sep2020");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -67,7 +67,7 @@ class HotelReservationTest {
 		hotel.printHotels();
 		String result = "";
 		try {
-			result = hotel.cheapestHotel("08/09/2020", "11/09/2020");
+			result = hotel.cheapestHotel("08Sep2020", "11Sep2020");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
