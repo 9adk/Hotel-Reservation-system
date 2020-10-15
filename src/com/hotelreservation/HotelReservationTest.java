@@ -95,4 +95,19 @@ class HotelReservationTest {
 		assertEquals("Bridgewood", result.get(0));
 		assertEquals("Lakewood", result.get(1));
 	}
+
+	/**
+	 * Usecase5 for adding data along with ratings for hotel
+	 */
+	@Test
+	public void givenHotelDatawithRatings_WhenAddedToMap_ShouldPassResult() {
+		HotelReservation hotel = new HotelReservation();
+		hotel.add("Lakewood", 110, 90, 3);
+		hotel.add("Bridgewood", 150, 50, 4);
+		hotel.add("Ridgewood", 220, 150, 5);
+		hotel.printHotels();
+		int result = hotel.size();
+		assertEquals(3, result);
+	}
+
 }

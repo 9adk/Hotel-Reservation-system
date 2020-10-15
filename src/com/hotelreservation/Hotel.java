@@ -6,6 +6,7 @@ public class Hotel {
 	private String hotelName;
 	private int regularWD;
 	private int regularWE;
+	private int ratings;
 
 	public Hotel(String hotelName, int regularWD) {
 		this.hotelName = hotelName;
@@ -17,6 +18,22 @@ public class Hotel {
 		this.regularWD = regularWD;
 		this.regularWE = regularWE;
 
+	}
+
+	public Hotel(String hotelName, int regularWD, int regularWE, int ratings) {
+		this.hotelName = hotelName;
+		this.regularWD = regularWD;
+		this.regularWE = regularWE;
+		this.ratings = ratings;
+
+	}
+
+	public int getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(int ratings) {
+		this.ratings = ratings;
 	}
 
 	public int getRegularWE() {
