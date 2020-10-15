@@ -127,7 +127,7 @@ class HotelReservationTest {
 	 * Finding cheapest best rated hotel(handled for out of bound exception )
 	 */
 	@Test
-	public void givenNewDatawithRatings_WhenAddedToMap_ShouldReturnBestRated() {
+	public void givenNewDatawithRatings_WhenAddedToMap_ShouldReturnCheapestBestRated() {
 		HotelReservation hotel = new HotelReservation();
 		hotel.add("Lakewood", 200, 90, 3);
 		hotel.add("Bridgewood", 180, 50, 4);
@@ -139,6 +139,20 @@ class HotelReservationTest {
 			System.out.println(e.getMessage());
 		}
 		assertEquals("Bridgewood", result);
+	}
+	@Test
+	public void givenNewDatawithRatings_WhenAddedToMap_ShouldReturnBestRated() {
+		HotelReservation hotel = new HotelReservation();
+		hotel.add("Lakewood", 200, 90, 3);
+		hotel.add("Bridgewood", 180, 50, 4);
+		hotel.add("Ridgewood", 220, 150, 5);
+		String result = "";
+		try {
+			result = hotel.bestRatedHotel("11Sep2020", "12Sep2020");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		assertEquals("Ridgewood", result);
 	}
 
 }

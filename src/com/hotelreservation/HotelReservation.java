@@ -59,6 +59,7 @@ public class HotelReservation {
 
 	public String cheapestBestRated(String fromDate, String toDate) throws ParseException {
 		List<String> cheapHotels = cheapestHotel(fromDate, toDate);
+		String[] arguments = {fromDate, toDate};
 		int rating = 0;
 		int count = 0;
 		String hotelName = "";
@@ -73,7 +74,7 @@ public class HotelReservation {
 				}
 			}
 		}
-		System.out.println();
+		System.out.println(hotelName+","+"Rating: "+rating+" Total rate is "+createRentMap(arguments).get(hotelName));
 		return hotelName;
 	}
 
@@ -106,7 +107,19 @@ public class HotelReservation {
 		System.out.println(" with The Total Rates $" + hotelRates.get(0));
 		return cheapestHotels;
 	}
-
+	public String bestRatedHotel(String fromDate, String toDate ) throws ParseException {
+		int rating = 0;
+		String[] arguments = {fromDate, toDate};
+		String hotelName = "";
+		for (Map.Entry<String, Hotel> entry : hotelMap.entrySet()) {
+			if (entry.getValue().getRatings() > rating) {
+				rating = entry.getValue().getRatings();
+				hotelName = entry.getKey();
+			}
+		}
+		System.out.println(hotelName+","+" Total rate is "+createRentMap(arguments).get(hotelName));
+		return hotelName;
+	}
 	/**
 	 * Printing the hotel data
 	 */
