@@ -228,4 +228,32 @@ class HotelReservationTest {
 		assertEquals("Ridgewood", result);
 		scanner.close();
 	}
+
+	/**
+	 * Usecase10 for finding cheapest best rated hotel for Reward customer
+	 * 
+	 * @throws ParseException
+	 */
+	@Test
+	void cheapestBestRated_ShouldReturnTrue() throws ParseException {
+		HotelReservation hotelReservation = new HotelReservation();
+		hotelReservation.add("Lakewood", 110, 90, 3, 80, 80);
+		hotelReservation.add("Bridgewood", 150, 50, 4, 110, 50);
+		hotelReservation.add("Ridgewood", 220, 150, 5, 100, 40);
+		assertEquals("Ridgewood", hotelReservation.cheapestBestRated("11Sep2020", "12Sep2020", "Reward"));
+	}
+
+	/**
+	 * Giving invalid inputs for custom exception
+	 */
+	@Test
+	void whenInvalidEntriesAreGiven_shouldThrow_InvalidEntryException() {
+		HotelReservation hotelReservation = new HotelReservation();
+		hotelReservation.add("Lakewood", 110, 90, 3, 80, 80);
+		hotelReservation.add("Bridgewood", 150, 50, 4, 110, 50);
+		hotelReservation.add("Ridgewood", 220, 150, 5, 100, 40);
+		assertThrows(HotelException.class, () -> {
+			hotelReservation.validateUserInputs("11 Sep 2020", "12 Sep 2020");
+		});
+	}
 }
